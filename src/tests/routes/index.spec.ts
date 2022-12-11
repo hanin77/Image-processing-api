@@ -1,9 +1,15 @@
 import supertest from 'supertest';
+import path from 'path';
 import app from '../../index';
+import { promises as fs } from 'fs';
 describe('GET .../images?query[]', () => {
   const request = supertest(app);
-  afterAll(() => {
-    //remove all resized images
+  const thumbPath = path.join(__dirname, `../../../images/thumb`);
+  afterAll(async () => {
+    //remove all resized images folder thumb
+    for (const file of await fs.readdir(thumbPath)) {
+      await fs.unlink(path.join(thumbPath, file));
+    }
   });
   it('should respond with 400 status if  filename query param is missing', async () => {
     const res = await request.get(`/api/images?width=200&height=200`);
