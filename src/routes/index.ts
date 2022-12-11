@@ -35,7 +35,7 @@ imagesRouter.get(
       //format the img with provided dim and send it to the client
       await sharp(imgPath)
         .resize(parseInt(query.width, 10), parseInt(query.height, 10))
-        .toFormat('jpeg')
+        .toFormat('jpg')
         .jpeg({ quality: 90 })
         .toFile(formatedImgPath);
       return res.sendFile(formatedImgPath);
