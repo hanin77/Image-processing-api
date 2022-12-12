@@ -2,9 +2,12 @@ doctype html
 html
 	include head.pug
 	body.container
+		script(src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+		script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous')
+		script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js' integrity='sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+' crossorigin='anonymous')
 		h1(class='text-warning') Image Processing API
 		div(class="d-flex flex-row")
-			section.col-md-4
+			section.col-md-5
 				form( action='/api/images', class="d-flex flex-column", method='GET' target='_blank')
 					div.col-sm-12.d-flex
 						p.col-sm-6 file name: 
@@ -15,7 +18,36 @@ html
 					div.col-sm-12.d-flex 
 						p.col-sm-6 height: 
 						input(type='number', class="col-sm-6 align-self-end", name='height', value='')
-					div.col-sm-12.d-flex.flex-column.justify-content-center
+					div.col-sm-12.d-flex.flex-column.justify-content-center.pt-2
 						input(class="btn-danger btn-lg" type='submit', value='Get img')
 			section.col-md-6
-				img(src="fjord.jpg",class="img-thumbnail", alt="requested img")
+				div.text-center.mx-3
+					h3 available images
+					.carousel.slide(data-ride='carousel' id="carouselImagesControls")
+						.carousel-inner
+							.carousel-item.active
+								img.d-block.w-100(src="encenadaport.jpg" alt='encenadaport')
+								div.carousel-caption.text-warning
+									h4 encenadaport
+							.carousel-item
+								img.d-block.w-100(src='fjord.jpg' alt='fjord')
+								div.carousel-caption.text-warning
+									h4 fjord
+							.carousel-item
+								img.d-block.w-100(src='icelandwaterfall.jpg' alt='icelandwaterfall')
+								div.carousel-caption.text-warning
+									h4 icelandwaterfall
+							.carousel-item
+								img.d-block.w-100(src='palmtunnel.jpg' alt='palmtunnel')
+								div.carousel-caption.text-warning
+									h4 palmtunnel
+							.carousel-item
+								img.d-block.w-100(src='santamonica.jpg' alt='santamonica')
+								div.carousel-caption.text-warning
+									h4 santamonica
+						button.carousel-control-prev(type='button' data-target='#carouselImagesControls' data-slide='prev')
+							span.carousel-control-prev-icon(aria-hidden='true')
+							span.sr-only Previous
+						button.carousel-control-next(type='button' data-target='#carouselImagesControls' data-slide='next')
+							span.carousel-control-next-icon(aria-hidden='true')
+							span.sr-only Next
