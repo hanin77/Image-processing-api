@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import sharp, { OutputInfo } from 'sharp';
 import fs from 'fs';
 import path from 'path';
