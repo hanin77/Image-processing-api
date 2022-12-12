@@ -1,9 +1,9 @@
 # Image Processing API
 
-#### visit app home page /
+#### 1- visit app home page /
 
-#### fill the form
+#### 2- fill the form
 
-#### hit Get img button
+#### 3- hit Get img button
 
-#### you will get the requested img in new tab
+#### 4- you will get the requested img in new tab
