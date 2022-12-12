@@ -6,7 +6,7 @@
   "scripts": {
     "jasmine": "jasmine",
     "lint": "eslint . --ext .ts",
-    "ts-build": "npx tsc",
+    "ts-build": "npx tsc &&  tscp",
     "build": "npm run lint && npm run ts-build ",
     "test": "npm run build && npm run jasmine",
     "dev": "nodemon src/index.ts",
@@ -36,7 +36,8 @@
     "nodemon": "^2.0.20",
     "prettier": "^2.5.1",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "typescript-cp": "^0.1.6"
   },
   "dependencies": {
     "express": "^4.18.2",
