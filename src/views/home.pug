@@ -1,0 +1,21 @@
+doctype html
+html
+	include head.pug
+	body.container
+		h1(class='text-warning') Image Processing API
+		div(class="d-flex flex-row")
+			section.col-md-4
+				form( action='/api/images', class="d-flex flex-column", method='GET')
+					div.col-sm-12.d-flex
+						p.col-sm-6 file name: 
+						input(type='text',class="col-sm-6 align-self-end" name='filename', value='')
+					div.col-sm-12.d-flex
+						p.col-sm-6 width: 
+						input(type='number',class="col-sm-6 align-self-end", name='width', value='')
+					div.col-sm-12.d-flex 
+						p.col-sm-6 height: 
+						input(type='number', class="col-sm-6 align-self-end", name='height', value='')
+					div.col-sm-12.d-flex.flex-column.justify-content-center
+						input(class="btn-danger btn-lg" type='submit', value='Get img')
+			section.col-md-6
+				img(src="fjord.jpg",class="img-thumbnail", alt="requested img")

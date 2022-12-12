@@ -30,9 +30,11 @@ imagesRouter.get(
       );
       //return the requested img if the file already formated with requested dim
       if (fs.existsSync(formatedImgPath)) {
+        console.log('img accessed');
         return res.sendFile(formatedImgPath);
       }
       //format the img with provided dim and send it to the client
+      console.log('img processed');
       await sharp(imgPath)
         .resize(parseInt(query.width, 10), parseInt(query.height, 10))
         .toFormat('jpg')
