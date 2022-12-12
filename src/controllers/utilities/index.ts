@@ -1,6 +1,8 @@
+import { NextFunction, Request, Response } from 'express';
 import sharp, { OutputInfo } from 'sharp';
 import fs from 'fs';
 import path from 'path';
+
 interface Query {
   filename?: string;
   width?: string;
@@ -40,11 +42,36 @@ const isNonValidQuery = (query: Query): boolean | string => {
 const isImgExist = (imgPath: string): boolean => {
   return fs.existsSync(imgPath);
 };
+
+const catchAsync = (
+  fn: (arg0: Request, arg1: Response, arg2: NextFunction) => Promise<unknown>
+) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    fn(req, res, next).catch((err: Error) => {
+      return next(err);
+    });
+  };
+};
+class AppError extends Error {
+  statusCode: number;
+  status: string;
+  isOperational: boolean;
+  constructor(message: string, statusCode: number) {
+    super(message);
+    this.statusCode = statusCode;
+    this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
+    this.isOperational = true;
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
 export {
   isImgExist,
   isNonValidQuery,
   getFormatedImagePath,
   getImagePath,
   formatImg,
-  Query
+  Query,
+  catchAsync,
+  AppError
 };
