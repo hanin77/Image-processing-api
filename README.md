@@ -18,17 +18,19 @@ the server will start at PORT 5000.
 ### http://localhost:5000/home:
 
 Visit this route to check all available images on the server.
-Fill the form
-Hit Get img button
-You will get the requested img in new tab
+
+- Fill the form
+- Hit Get img button
+- You will get the requested img in new tab
 
 ### http://localhost:5000/api/images:
 
 you need to provide as query:
-1- filename
-2- width number > 0
-3- height number > 0
-in casy of any missing query param a 400 response with message "not all required fields where provided" will be returned
+
+- filename
+- width number > 0
+- height number > 0
+  in casy of any missing query param a 400 response with message "not all required fields where provided" will be returned
 
 ### Example
 
