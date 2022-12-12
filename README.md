@@ -3,12 +3,13 @@
 ## Scripts
 
 use `npm run command` to run scripts above:
-1- dev: start the server directly from ts files.
-2- start: build the project and start the server
-3- lint: scan ts files for any errors,
-4- ts-build : Transplie ts files to js,
-5- build: lint and build the project.
-5- test : run test suites.
+
+- dev: start the server directly from ts files.
+- start: build the project and start the server
+- lint: scan ts files for any errors,
+- ts-build : Transplie ts files to js,
+- build: lint and build the project.
+- test : run test suites.
 
 ## Endpoints
 
