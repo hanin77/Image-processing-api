@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import imagesRouter from './routes';
+import imagesRouter from './routes/imagesRoutes';
 import viewRouter from './routes/viewRoutes';
 const app = express();
 const port = 5000 || process.env.PORT;
