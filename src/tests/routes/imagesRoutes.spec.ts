@@ -2,7 +2,7 @@ import supertest from 'supertest';
 import path from 'path';
 import app from '../../index';
 import { promises as fs } from 'fs';
-describe('GET .../images?query[]', () => {
+describe('GET .../api/images?query[]', () => {
   const request = supertest(app);
   const thumbPath = path.join(__dirname, `../../../images/thumb`);
   afterAll(async () => {
