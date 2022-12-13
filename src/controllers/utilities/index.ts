@@ -26,9 +26,13 @@ const getImagePath = (imageName: string): string => {
   return path.join(__dirname, `../../../images/${imageName}.jpg`);
 };
 const getFormatedImagePath = (query: Query): string => {
-  return path.join(
-    __dirname,
-    `../../../images/thumb/${query.filename}-${query.width}x${query.height}.jpg`
+  const thumbDirPath = path.join(__dirname, `../../../images/thumb`);
+  if (!fs.existsSync(thumbDirPath)) {
+    fs.mkdirSync(thumbDirPath);
+  }
+  return path.resolve(
+    thumbDirPath,
+    `${query.filename}-${query.width}x${query.height}.jpg`
   );
 };
 const isNonValidQuery = (query: Query): boolean | string => {
